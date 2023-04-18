@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Percent Difference Error Change Calculator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+
+
+    <py-config>
+    </py-config>
+
+	<py-script>
+		number = 0
+    </py-script>
+
+  
+    <py-repl>
+
+    	# HOW TO:
+    	# change value of variables as necessary
+    	# shift-enter to recalculate
+    	# 	OR hover mouse pointer near low right of block to reveal green button
+    	# control-r will clear any changes and output
+
+		number += 1
+
+		print('----------------------------------------------------------------------')
+		print(f'Calculation: {number}')
+		print('----------------------------------------------------------------------')
+       
+
+		def percent_diff(val1, val2):
+			return abs((val1 - val2) / ((val1 + val2)/2)) * 100
+
+		def percent_error(val_exact, val_approx):
+			return (abs(val_approx - val_exact) / abs(val_exact)) * 100
+
+		def percent_change(val_new, val_old):
+			return ((val_new - val_old) / abs(val_old)) * 100
+
+
+		val1 = 55.00
+		val2 = 89.8
+		pd = percent_diff(val1, val2)
+
+		val_exact = val1
+		val_approx = val2
+		pe = percent_error(val_exact, val_approx)
+
+		val_new	= val1
+		val_old = val2
+		pc = percent_change(val_new, val_old)
+
+		print('CALCULATED')
+		print(f'\tPercent Difference between {val1:.2f} and {val2:.2f} is {pd:.3f}%')
+		print()
+		print(f'\tPercent Error between {val_exact:.2f} and {val_approx:.2f} is {pe:.3f}%')
+		print()
+		print(f'\tPercent Change between {val_old:.2f} and {val_new:.2f} is {pc:.3f}%')
+
+		
+    </py-repl>
+    
+  </body>
+</html>

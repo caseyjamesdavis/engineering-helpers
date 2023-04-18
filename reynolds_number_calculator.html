@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>Reynolds Number Calculator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+
+
+    <py-config>
+      packages = ["pint"]
+    </py-config>
+
+	<py-script>
+		number = 0
+
+		from pint import UnitRegistry
+		p = UnitRegistry(autoconvert_offset_to_baseunit = True)
+    </py-script>
+
+  
+    <py-repl>
+
+    	# HOW TO:
+    	# change value of variables as necessary
+    	# shift-enter to recalculate
+    	# 	OR hover mouse pointer near low right of block to reveal green button
+    	# control-r will clear any changes and output
+
+		number += 1
+
+		print('----------------------------------------------------------------------')
+		print(f'Calculation: {number}')
+		print('----------------------------------------------------------------------')
+		print('GIVENS')
+       
+
+		p.default_format = '.1f~P'
+
+		# material properties for molten aluminum
+		
+		viscosity_dynamic = 1.0e-3 * p.Pa * p.s
+		print(f'\tDynamic Viscosity: {viscosity_dynamic.to(p.mPa*p.s)}')
+		
+		rho = 2700 * p.kg / p.m**3
+		print(f'\tDensity: {rho}')
+
+
+
+		# fluid speed
+		
+		u = 1.0 * p.m/p.s
+		print(f'\tVelocity: {u}')
+
+
+
+		# calculate hydraulic diamter for rectangular duct
+		
+		a = 2 * p.mm
+		b = 20 * p.mm
+		print(f'\tDuct Height: {a}')		
+		print(f'\tDuct Width: {b}')	
+
+		Dh = (2*a*b)/(a+b)
+
+		print('CALCULATED')
+		print(f'\tHydraulic Diameter: {Dh}')
+
+
+
+
+		# calculate reynolds number
+		
+		Re = rho * u * Dh / viscosity_dynamic
+		print(f'\tReynolds Number: {Re.to(p.dimensionless)}')
+		print()
+
+
+		
+		
+    </py-repl>
+    
+  </body>
+</html>
