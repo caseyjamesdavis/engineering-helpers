@@ -25,7 +25,7 @@
     	# HOW TO:
     	# change value of variables as necessary
     	# shift-enter to recalculate
-    	# 	OR hover mouse pointer near low right of block to reveal green button
+    	# 	OR hover mouse pointer near lower right of block to reveal green button
     	# control-r will clear any changes and output
 
 		number += 1
@@ -38,7 +38,7 @@
 
 		p.default_format = '.1f~P'
 
-		# material properties for molten aluminum
+		# material properties for fluid  - molten aluminum
 		
 		viscosity_dynamic = 1.0e-3 * p.Pa * p.s
 		print(f'\tDynamic Viscosity: {viscosity_dynamic.to(p.mPa*p.s)}')
@@ -75,6 +75,8 @@
 		Re = rho * u * Dh / viscosity_dynamic
 		print(f'\tReynolds Number: {Re.to(p.dimensionless)}')
 		print()
+	    	print()
+	    	print()
 
 
 		
