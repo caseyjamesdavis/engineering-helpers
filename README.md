@@ -1,9 +1,6 @@
-unit aware analysis examples
+This is a painless way to tryout unit aware analysis using jupyter, python, and the Pint unit library.
 
-using
+Select 'Run', then 'Run All Cells'
 
-jupyterlite
-pint
-
-[link](https://caseyjamesdavis.github.io/engineering-helpers)
+Change any values or units and 'Run All Cells' again to see changes.
 
